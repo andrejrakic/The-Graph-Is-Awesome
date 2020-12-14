@@ -7,10 +7,10 @@ import { Support, Supporter } from '../generated/schema';
 
 export function handleSupported(event: Supported): void {
 	let supporterEntity = new Supporter(event.params.supporter.toHex());
-	let supportEntity = Support.load(event.transaction.from.toHex());
+	let supportEntity = Support.load(event.transaction.hash.toHex());
 
 	if (supportEntity == null) {
-		supportEntity = new Support(event.transaction.from.toHex());
+		supportEntity = new Support(event.transaction.hash.toHex());
 	}
 
 	supportEntity.supporter = supporterEntity.id;
