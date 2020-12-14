@@ -1,0 +1,10 @@
+type Supporter @entity {
+	id: ID! # ethereum address
+}
+
+type Support @entity {
+	id: ID! # txn hash
+	supporter: Supporter! # address
+	aliasName: String!
+	comment: String!
+}

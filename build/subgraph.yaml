@@ -1,0 +1,23 @@
+specVersion: 0.0.2
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: SupportTheGraph
+    network: rinkeby
+    source:
+      address: "0x96a19BE3abd88799C5fE30B52F7ad5c950316c29"
+      abi: SupportTheGraph
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - Supported
+      abis:
+        - name: SupportTheGraph
+          file: SupportTheGraph/abis/SupportTheGraph.json
+      eventHandlers:
+        - event: Supported(indexed address,string,string)
+          handler: handleSupported
+      file: SupportTheGraph/SupportTheGraph.wasm
