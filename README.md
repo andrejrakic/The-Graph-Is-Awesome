@@ -1,1 +1,1 @@
-# The-Graph-Is-Awesome
+# The Graph Is Awesome
